@@ -1,21 +1,20 @@
 
-// most of the processors can make mathematical process like shifting and multipling
-// divide process can take long time if compare with shifting and multipling
+// most of the processors can execute mathematical process like shifting and multipling very fast
+// but, divide process can take very long time if compare with shifting and multipling
 // in an ordinary bin to bcd convertion a lots of divide or subtraction process should be made
 // the function below can made this with very fast and elegant way.
 
-unsigned char bcd_digits[6];
-
+unsigned char bcd_digits[6]; // output digits on the main function
 // the fast 16bit binary to bcd function
 void bin2bcd(unsigned int value) 
 { 
-  unsigned int temp16 = value; unsigned char d0, d1, d2, d3, d4, q;
+  unsigned char d0, d1, d2, d3, d4, q;
 
-  d1 = ( temp16 >> 4 ) & 0x0F;
-  d2 = ( temp16 >> 8 ) & 0x0F;
-  d3 = ( temp16 >> 12) & 0x0F;
+  d1 = ( value >> 4 ) & 0x0F;
+  d2 = ( value >> 8 ) & 0x0F;
+  d3 = ( value >> 12) & 0x0F;
 
-  d0 = 6*(d3 + d2+ d1) + ( temp16 & 0x0F );
+  d0 = 6*(d3 + d2+ d1) + ( value & 0x0F );
   q = (d0 * 0xCD) >> 11;
   d0 = d0 - 10*q;
 
