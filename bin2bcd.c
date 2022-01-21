@@ -1,4 +1,9 @@
 
+// most of the processors can make mathematical process like shifting and multipling
+// divide process can take long time if compare with shifting and multipling
+// in an ordinary bin to bcd convertion a lots of divide or subtraction process should be made
+// the function below can made this with very fast and elegant way.
+
 unsigned char bcd_digits[6];
 
 // the fast 16bit binary to bcd function
